@@ -71,3 +71,11 @@ jobs:
           name: daily-youtube-videos
           path: out/*
           retention-days: 7
+
+      - name: 🚀 Publish Live to YouTube
+        env:
+          YOUTUBE_CLIENT_ID: ${{ secrets.YOUTUBE_CLIENT_ID }}
+          YOUTUBE_CLIENT_SECRET: ${{ secrets.YOUTUBE_CLIENT_SECRET }}
+          YOUTUBE_REFRESH_TOKEN: ${{ secrets.YOUTUBE_REFRESH_TOKEN }}
+        run: |
+          python upload_to_youtube.py
